@@ -1,104 +1,52 @@
-/* Reset */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #fff0f6;
-  color: #5a2140;
+  background-color: #fff0f6;
+  font-family: sans-serif;
+  color: #4a0033;
   padding: 20px;
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 30px;
-  color: #b3306a;
+  margin-bottom: 20px;
 }
 
 #malla-container {
   display: flex;
+  gap: 20px;
   overflow-x: auto;
-  gap: 15px;
-  padding-bottom: 20px;
 }
 
 .semestre-col {
-  background: #fce4ec;
-  border-radius: 8px;
-  min-width: 240px;
-  padding: 15px 10px 30px 10px;
-  box-shadow: 0 0 10px #e3a9c7;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-shrink: 0;
+  min-width: 220px;
+  background-color: #f8bbd0;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 2px 2px 6px #c2185b;
 }
 
 .semestre-col h2 {
-  margin-bottom: 15px;
-  font-size: 1.1rem;
-  color: #a52a5e;
   text-align: center;
+  color: #880e4f;
+  margin-bottom: 10px;
 }
 
 .ramo {
-  background: #f48fb1;
-  border-radius: 6px;
-  box-shadow: 0 2px 5px #d27a9a;
-  padding: 12px 10px;
-  margin-bottom: 12px;
-  width: 100%;
-  text-align: center;
-  font-weight: 600;
-  cursor: pointer;
-  user-select: none;
-  transition: all 0.3s ease;
+  background-color: #f06292;
+  margin: 6px 0;
+  padding: 10px;
+  border-radius: 8px;
   color: white;
-  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s;
 }
 
-/* Estado no aprobado (normal) */
-.ramo:not(.aprobado):hover {
-  background: #ec407a;
-  box-shadow: 0 3px 8px #c33f70;
+.ramo:hover {
+  background-color: #e91e63;
 }
 
-/* Estado aprobado */
 .ramo.aprobado {
-  background: #ad1457;
-  box-shadow: 0 3px 10px #730033;
-  color: #ffdce4;
+  background-color: #880e4f;
   text-decoration: line-through;
-  cursor: default;
-}
-
-/* Scrollbar para container horizontal */
-#malla-container::-webkit-scrollbar {
-  height: 8px;
-}
-#malla-container::-webkit-scrollbar-track {
-  background: #fce4ec;
-  border-radius: 10px;
-}
-#malla-container::-webkit-scrollbar-thumb {
-  background: #b3306a;
-  border-radius: 10px;
-}
-
-/* Responsive: menos padding en móvil */
-@media (max-width: 600px) {
-  body {
-    padding: 10px;
-  }
-  .semestre-col {
-    min-width: 180px;
-    padding: 10px 8px 20px 8px;
-  }
-  .ramo {
-    font-size: 0.85rem;
-    padding: 8px 6px;
-  }
 }
