@@ -1,36 +1,35 @@
-// Script para la lógica de aprobación y desbloqueo
-
 document.addEventListener("DOMContentLoaded", () => {
+  // Obtener todos los ramos
   const ramos = document.querySelectorAll(".ramo");
 
-  // Mapa para acceder rápido a cada ramo por su id
+  // Crear un mapa rápido para buscar ramos por id
   const mapaRamos = {};
   ramos.forEach(ramo => {
     mapaRamos[ramo.id] = ramo;
   });
 
-  // Función para aprobar un ramo y todos los que dependen de él recursivamente
+  // Función recursiva para aprobar un ramo y los que desbloquea
   function aprobarRamo(id) {
     const ramo = mapaRamos[id];
-    if (!ramo || ramo.classList.contains("aprobado")) return;
+    if (!ramo) return; // Si no existe, salir
+    if (ramo.classList.contains("aprobado")) return; // Ya aprobado
 
     ramo.classList.add("aprobado");
 
-    // Desbloquear ramos que este ramo abre
+    // Obtener la lista de ramos que desbloquea
     const abre = ramo.dataset.abre;
     if (abre && abre.trim() !== "") {
-      const ramosAbiertos = abre.split(",").map(r => r.trim());
-      ramosAbiertos.forEach(ramoId => aprobarRamo(ramoId));
+      const ramosAbiertos = abre.split(",").map(x => x.trim());
+      ramosAbiertos.forEach(idAbierto => aprobarRamo(idAbierto));
     }
   }
 
-  // Click en ramo
+  // Añadir evento click a cada ramo
   ramos.forEach(ramo => {
     ramo.addEventListener("click", () => {
-      // Si ya está aprobado no hace nada
-      if (ramo.classList.contains("aprobado")) return;
-
-      aprobarRamo(ramo.id);
+      if (!ramo.classList.contains("aprobado")) {
+        aprobarRamo(ramo.id);
+      }
     });
   });
 });
