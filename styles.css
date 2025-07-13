@@ -1,60 +1,49 @@
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #fff9fb;
-  padding: 20px;
-  text-align: center;
+const ramos = {
+  "Cálculo I": { requisitos: [], semestre: 1, desbloquea: ["Cálculo II", "Fundamentos de economía para ingeniería"] },
+  "Álgebra I": { requisitos: [], semestre: 1, desbloquea: ["Álgebra II"] },
+  const estado = {};
+const mallaDiv = document.querySelector(".malla");
+
+Object.entries(ramos).forEach(([nombre, data]) => {
+  const div = document.createElement("div");
+  div.className = "ramo bloqueado";
+  div.textContent = nombre;
+  div.dataset.nombre = nombre;
+
+  const columna = document.getElementById(`semestre-${data.semestre}`);
+  columna.appendChild(div);
+
+  estado[nombre] = {
+    aprobado: false,
+    div: div,
+    desbloqueado: data.requisitos.length === 0
+  };
+
+  if (estado[nombre].desbloqueado) {
+    desbloquear(nombre);
+  }
+});
+
+function desbloquear(nombre) {
+  const ramo = estado[nombre];
+  if (!ramo.aprobado && !ramo.div.classList.contains("desbloqueado")) {
+    ramo.div.classList.remove("bloqueado");
+    ramo.div.classList.add("desbloqueado");
+    ramo.div.addEventListener("click", () => aprobar(nombre));
+  }
 }
 
-h1 {
-  color: #d14a79;
-  margin-bottom: 30px;
-  font-size: 2rem;
-}
-
-.malla {
-  display: flex;
-  overflow-x: auto;
-  gap: 15px;
-  justify-content: flex-start;
-  padding-bottom: 20px;
-}
-
-.semestre {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 10px;
-  min-width: 200px;
-  background-color: #f8f0f5;
-  border-radius: 15px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.ramo {
-  padding: 12px;
-  border-radius: 10px;
-  background-color: #e0e7ff;
-  border: 2px solid #a5b4fc;
-  transition: 0.3s;
-  cursor: pointer;
-  font-size: 0.95rem;
-  color: #333;
-}
-
-.ramo:hover {
-  background-color: #c7d2fe;
-}
-
-.ramo.aprobado {
-  background-color: #bae6fd;
-  border-color: #38bdf8;
-  color: #065f46;
-}
-
-.ramo.bloqueado {
-  background-color: #e5e7eb;
-  border-color: #d1d5db;
-  color: #9ca3af;
-  pointer-events: none;
-  cursor: not-allowed;
+function aprobar(nombre) {
+  const ramo = estado[nombre];
+  if (!ramo.aprobado) {
+    ramo.aprobado = true;
+    ramo.div.classList.add("aprobado");
+    ramo.div.classList.remove("desbloqueado");
+    const desbloquea = ramos[nombre].desbloquea || [];
+    desbloquea.forEach(dest => {
+      const requisitos = ramos[dest].requisitos || [];
+      const aprobados = requisitos.every(req => estado[req]?.aprobado);
+      if (aprobados) desbloquear(dest);
+    });
+  }
 }
