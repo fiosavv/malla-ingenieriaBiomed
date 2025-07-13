@@ -2,25 +2,120 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Malla Interactiva - Ingeniería Biomédica</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Malla Curricular Ingeniería Biomédica</title>
+  <link rel="stylesheet" href="estilos.css" />
 </head>
 <body>
-  <h1>Malla Interactiva - Ingeniería Biomédica</h1>
-  <div class="malla">
-    <div class="semestre" id="semestre-1"></div>
-    <div class="semestre" id="semestre-2"></div>
-    <div class="semestre" id="semestre-3"></div>
-    <div class="semestre" id="semestre-4"></div>
-    <div class="semestre" id="semestre-5"></div>
-    <div class="semestre" id="semestre-6"></div>
-    <div class="semestre" id="semestre-7"></div>
-    <div class="semestre" id="semestre-8"></div>
-    <div class="semestre" id="semestre-9"></div>
-    <div class="semestre" id="semestre-10"></div>
-    <div class="semestre" id="semestre-11"></div>
+  <h1>Malla Curricular Ingeniería Biomédica</h1>
+  <div id="malla-container">
+
+    <!-- Primer Año -->
+    <div class="semestre-col">
+      <h2>I Semestre (Primer Año)</h2>
+      <div class="ramo" id="CalculoI" data-abre="CalculoII,FundamentosEconomia">Cálculo I</div>
+      <div class="ramo" id="AlgebraI" data-abre="AlgebraII">Álgebra I</div>
+      <div class="ramo" id="FisicaI" data-abre="FisicaII">Física I</div>
+      <div class="ramo" id="IntroDiseno" data-abre="FundamentosProg">Introducción al diseño en ingeniería</div>
+      <div class="ramo" id="IntroBiomed" data-abre="">Introducción a la ingeniería biomédica</div>
+    </div>
+
+    <div class="semestre-col">
+      <h2>II Semestre (Primer Año)</h2>
+      <div class="ramo" id="CalculoII" data-abre="CalculoIII,ElectricidadMagnetismo,AnalisisEstadistico,EcuacionesDif">Cálculo II</div>
+      <div class="ramo" id="AlgebraII" data-abre="EcuacionesDif">Álgebra II</div>
+      <div class="ramo" id="FisicaII" data-abre="ElectricidadMagnetismo,AnalisisEstadistico">Física II</div>
+      <div class="ramo" id="FundamentosProg" data-abre="MetodosProg">Fundamentos de programación para ingeniería</div>
+      <div class="ramo" id="BiologiaCelular" data-abre="BiologiaMolecular,Fisiologia">Biología Celular</div>
+    </div>
+
+    <!-- Segundo Año -->
+    <div class="semestre-col">
+      <h2>III Semestre (Segundo Año)</h2>
+      <div class="ramo" id="InglesI" data-abre="InglesII">Inglés I</div>
+      <div class="ramo" id="CalculoIII" data-abre="">Cálculo III</div>
+      <div class="ramo" id="ElectricidadMagnetismo" data-abre="RedesElectricas,Biomateriales">Electricidad y magnetismo para ingeniería</div>
+      <div class="ramo" id="FundamentosEconomia" data-abre="TallerDiseno,IngenieriaEconomica">Fundamentos de economía para ingeniería</div>
+      <div class="ramo" id="AnalisisEstadistico" data-abre="Bioestadistica,ProcesamientoSenales">Análisis estadístico para ingeniería</div>
+      <div class="ramo" id="BiologiaMolecular" data-abre="Bioinformatica">Biología Molecular</div>
+    </div>
+
+    <div class="semestre-col">
+      <h2>IV Semestre (Segundo Año)</h2>
+      <div class="ramo" id="InglesII" data-abre="InglesIII">Inglés II</div>
+      <div class="ramo" id="TallerDiseno" data-abre="">Taller de diseño en ingeniería</div>
+      <div class="ramo" id="MetodosProg" data-abre="AnalisisAlgoritmos">Métodos de programación interdisciplinaria</div>
+      <div class="ramo" id="IngenieriaEconomica" data-abre="EvaluacionProyectos">Ingeniería económica interdisciplinaria</div>
+      <div class="ramo" id="Fisiologia" data-abre="Bioetica,FisiologiaII">Fisiología</div>
+      <div class="ramo" id="EcuacionesDif" data-abre="RedesElectricas">Ecuaciones diferenciales y métodos numéricos para biomédica</div>
+    </div>
+
+    <!-- Tercer Año -->
+    <div class="semestre-col">
+      <h2>V Semestre (Tercer Año)</h2>
+      <div class="ramo" id="InglesIII" data-abre="InglesIV">Inglés III</div>
+      <div class="ramo" id="Bioestadistica" data-abre="ElectivoI">Bioestadísticas</div>
+      <div class="ramo" id="Bioetica" data-abre="">Bioética</div>
+      <div class="ramo" id="RedesElectricas" data-abre="SistemasElectronicos,ControlSistemas,SistemasDigitales">Redes eléctricas interdisciplinaria</div>
+      <div class="ramo" id="FisiologiaII" data-abre="Electromedicina,Biomecanica,Mediciones">Fisiología II</div>
+      <div class="ramo" id="AnalisisAlgoritmos" data-abre="IngenieriaSoftware,Bioinformatica">Análisis de algoritmos y estructura de datos interdisciplinaria</div>
+    </div>
+
+    <div class="semestre-col">
+      <h2>VI Semestre (Tercer Año)</h2>
+      <div class="ramo" id="InglesIV" data-abre="">Inglés IV</div>
+      <div class="ramo" id="ProcesamientoSenales" data-abre="TopicoI,TopicoII">Procesamiento de señales biológicas</div>
+      <div class="ramo" id="Biomateriales" data-abre="Biomecanica">Biomateriales</div>
+      <div class="ramo" id="SistemasElectronicos" data-abre="Electromedicina,Mediciones">Sistemas electrónicos interdisciplinaria</div>
+      <div class="ramo" id="ControlSistemas" data-abre="">Control de sistemas</div>
+      <div class="ramo" id="IngenieriaSoftware" data-abre="InformaticaSalud">Ingeniería de software interdisciplinaria</div>
+    </div>
+
+    <!-- Cuarto Año -->
+    <div class="semestre-col">
+      <h2>VII Semestre (Cuarto Año)</h2>
+      <div class="ramo" id="Electromedicina" data-abre="Bioinstrumentacion,TopicoII">Electromedicina</div>
+      <div class="ramo" id="Biomecanica" data-abre="TopicoII,TopicoIII,ElectivoI,TopicoIV,TopicoV">Biomecánica</div>
+      <div class="ramo" id="SistemasDigitales" data-abre="">Sistemas digitales y microcontroles</div>
+      <div class="ramo" id="Mediciones" data-abre="IngenieriaClinica">Mediciones fisiológicas y bioseguridad</div>
+      <div class="ramo" id="EvaluacionProyectos" data-abre="IngenieriaClinica,Bioinstrumentacion,AnalisisSistemasSalud">Evaluación de proyectos</div>
+    </div>
+
+    <div class="semestre-col">
+      <h2>VIII Semestre (Cuarto Año)</h2>
+      <div class="ramo" id="IngenieriaClinica" data-abre="GestionOperaciones,TopicoIII,ElectivoI">Ingeniería clínica</div>
+      <div class="ramo" id="Bioinstrumentacion" data-abre="TopicoII,TopicoIII,ElectivoI,TopicoV">Bioinstrumentación</div>
+      <div class="ramo" id="InformaticaSalud" data-abre="TopicoI,TopicoII,TopicoIII,ElectivoI,TopicoV,TopicoVI">Informática de Salud</div>
+      <div class="ramo" id="Bioinformatica" data-abre="TopicoV">Bioinformática</div>
+      <div class="ramo" id="AnalisisSistemasSalud" data-abre="">Análisis de sistemas de salud</div>
+    </div>
+
+    <!-- Quinto Año -->
+    <div class="semestre-col">
+      <h2>IX Semestre (Quinto Año)</h2>
+      <div class="ramo" id="GestionOperaciones" data-abre="TopicoIV,TopicoV">Gestión de operaciones en salud</div>
+      <div class="ramo" id="TopicoI" data-abre="TopicoIV">Tópico de especialidad I</div>
+      <div class="ramo" id="TopicoII" data-abre="">Tópico de especialidad II</div>
+      <div class="ramo" id="TopicoIII" data-abre="">Tópico de especialidad III</div>
+      <div class="ramo" id="ElectivoI" data-abre="DesarrolloInnovacion,ElectivoII">Electivo I</div>
+    </div>
+
+    <div class="semestre-col">
+      <h2>X Semestre (Quinto Año)</h2>
+      <div class="ramo" id="TopicoIV" data-abre="">Tópico de especialidad IV</div>
+      <div class="ramo" id="TopicoV" data-abre="">Tópico de especialidad V</div>
+      <div class="ramo" id="TopicoVI" data-abre="">Tópico de especialidad VI</div>
+      <div class="ramo" id="DesarrolloInnovacion" data-abre="">Desarrollo e innovación en ingeniería biomédica</div>
+      <div class="ramo" id="ElectivoII" data-abre="TrabajoTitulacion">Electivo II</div>
+    </div>
+
+    <div class="semestre-col">
+      <h2>XI Semestre (Quinto Año)</h2>
+      <div class="ramo" id="TrabajoTitulacion" data-abre="">Trabajo de Titulación (FIN)</div>
+    </div>
+
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
