@@ -1,7 +1,8 @@
 body {
   background-color: #fff0f6;
-  font-family: sans-serif;
+  font-family: Arial, sans-serif;
   color: #4a0033;
+  margin: 0;
   padding: 20px;
 }
 
@@ -22,6 +23,7 @@ h1 {
   border-radius: 10px;
   padding: 10px;
   box-shadow: 2px 2px 6px #c2185b;
+  flex-shrink: 0;
 }
 
 .semestre-col h2 {
@@ -43,7 +45,7 @@ h1 {
 }
 
 .ramo:hover {
-  background-color: #e91e63;
+  background-color: #ec407a;
 }
 
 .ramo.aprobado {
