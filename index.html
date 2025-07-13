@@ -2,15 +2,15 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Malla Curricular Ingeniería Biomédica</title>
   <link rel="stylesheet" href="estilos.css" />
 </head>
 <body>
   <h1>Malla Curricular Ingeniería Biomédica</h1>
-  <div id="malla-container">
 
-    <!-- Primer Año -->
+  <div id="malla-container">
+    <!-- Columna ejemplo -->
     <div class="semestre-col">
       <h2>I Semestre (Primer Año)</h2>
       <div class="ramo" id="CalculoI" data-abre="CalculoII,FundamentosEconomia">Cálculo I</div>
@@ -29,7 +29,6 @@
       <div class="ramo" id="BiologiaCelular" data-abre="BiologiaMolecular,Fisiologia">Biología Celular</div>
     </div>
 
-    <!-- Segundo Año -->
     <div class="semestre-col">
       <h2>III Semestre (Segundo Año)</h2>
       <div class="ramo" id="InglesI" data-abre="InglesII">Inglés I</div>
@@ -40,80 +39,7 @@
       <div class="ramo" id="BiologiaMolecular" data-abre="Bioinformatica">Biología Molecular</div>
     </div>
 
-    <div class="semestre-col">
-      <h2>IV Semestre (Segundo Año)</h2>
-      <div class="ramo" id="InglesII" data-abre="InglesIII">Inglés II</div>
-      <div class="ramo" id="TallerDiseno" data-abre="">Taller de diseño en ingeniería</div>
-      <div class="ramo" id="MetodosProg" data-abre="AnalisisAlgoritmos">Métodos de programación interdisciplinaria</div>
-      <div class="ramo" id="IngenieriaEconomica" data-abre="EvaluacionProyectos">Ingeniería económica interdisciplinaria</div>
-      <div class="ramo" id="Fisiologia" data-abre="Bioetica,FisiologiaII">Fisiología</div>
-      <div class="ramo" id="EcuacionesDif" data-abre="RedesElectricas">Ecuaciones diferenciales y métodos numéricos para biomédica</div>
-    </div>
-
-    <!-- Tercer Año -->
-    <div class="semestre-col">
-      <h2>V Semestre (Tercer Año)</h2>
-      <div class="ramo" id="InglesIII" data-abre="InglesIV">Inglés III</div>
-      <div class="ramo" id="Bioestadistica" data-abre="ElectivoI">Bioestadísticas</div>
-      <div class="ramo" id="Bioetica" data-abre="">Bioética</div>
-      <div class="ramo" id="RedesElectricas" data-abre="SistemasElectronicos,ControlSistemas,SistemasDigitales">Redes eléctricas interdisciplinaria</div>
-      <div class="ramo" id="FisiologiaII" data-abre="Electromedicina,Biomecanica,Mediciones">Fisiología II</div>
-      <div class="ramo" id="AnalisisAlgoritmos" data-abre="IngenieriaSoftware,Bioinformatica">Análisis de algoritmos y estructura de datos interdisciplinaria</div>
-    </div>
-
-    <div class="semestre-col">
-      <h2>VI Semestre (Tercer Año)</h2>
-      <div class="ramo" id="InglesIV" data-abre="">Inglés IV</div>
-      <div class="ramo" id="ProcesamientoSenales" data-abre="TopicoI,TopicoII">Procesamiento de señales biológicas</div>
-      <div class="ramo" id="Biomateriales" data-abre="Biomecanica">Biomateriales</div>
-      <div class="ramo" id="SistemasElectronicos" data-abre="Electromedicina,Mediciones">Sistemas electrónicos interdisciplinaria</div>
-      <div class="ramo" id="ControlSistemas" data-abre="">Control de sistemas</div>
-      <div class="ramo" id="IngenieriaSoftware" data-abre="InformaticaSalud">Ingeniería de software interdisciplinaria</div>
-    </div>
-
-    <!-- Cuarto Año -->
-    <div class="semestre-col">
-      <h2>VII Semestre (Cuarto Año)</h2>
-      <div class="ramo" id="Electromedicina" data-abre="Bioinstrumentacion,TopicoII">Electromedicina</div>
-      <div class="ramo" id="Biomecanica" data-abre="TopicoII,TopicoIII,ElectivoI,TopicoIV,TopicoV">Biomecánica</div>
-      <div class="ramo" id="SistemasDigitales" data-abre="">Sistemas digitales y microcontroles</div>
-      <div class="ramo" id="Mediciones" data-abre="IngenieriaClinica">Mediciones fisiológicas y bioseguridad</div>
-      <div class="ramo" id="EvaluacionProyectos" data-abre="IngenieriaClinica,Bioinstrumentacion,AnalisisSistemasSalud">Evaluación de proyectos</div>
-    </div>
-
-    <div class="semestre-col">
-      <h2>VIII Semestre (Cuarto Año)</h2>
-      <div class="ramo" id="IngenieriaClinica" data-abre="GestionOperaciones,TopicoIII,ElectivoI">Ingeniería clínica</div>
-      <div class="ramo" id="Bioinstrumentacion" data-abre="TopicoII,TopicoIII,ElectivoI,TopicoV">Bioinstrumentación</div>
-      <div class="ramo" id="InformaticaSalud" data-abre="TopicoI,TopicoII,TopicoIII,ElectivoI,TopicoV,TopicoVI">Informática de Salud</div>
-      <div class="ramo" id="Bioinformatica" data-abre="TopicoV">Bioinformática</div>
-      <div class="ramo" id="AnalisisSistemasSalud" data-abre="">Análisis de sistemas de salud</div>
-    </div>
-
-    <!-- Quinto Año -->
-    <div class="semestre-col">
-      <h2>IX Semestre (Quinto Año)</h2>
-      <div class="ramo" id="GestionOperaciones" data-abre="TopicoIV,TopicoV">Gestión de operaciones en salud</div>
-      <div class="ramo" id="TopicoI" data-abre="TopicoIV">Tópico de especialidad I</div>
-      <div class="ramo" id="TopicoII" data-abre="">Tópico de especialidad II</div>
-      <div class="ramo" id="TopicoIII" data-abre="">Tópico de especialidad III</div>
-      <div class="ramo" id="ElectivoI" data-abre="DesarrolloInnovacion,ElectivoII">Electivo I</div>
-    </div>
-
-    <div class="semestre-col">
-      <h2>X Semestre (Quinto Año)</h2>
-      <div class="ramo" id="TopicoIV" data-abre="">Tópico de especialidad IV</div>
-      <div class="ramo" id="TopicoV" data-abre="">Tópico de especialidad V</div>
-      <div class="ramo" id="TopicoVI" data-abre="">Tópico de especialidad VI</div>
-      <div class="ramo" id="DesarrolloInnovacion" data-abre="">Desarrollo e innovación en ingeniería biomédica</div>
-      <div class="ramo" id="ElectivoII" data-abre="TrabajoTitulacion">Electivo II</div>
-    </div>
-
-    <div class="semestre-col">
-      <h2>XI Semestre (Quinto Año)</h2>
-      <div class="ramo" id="TrabajoTitulacion" data-abre="">Trabajo de Titulación (FIN)</div>
-    </div>
-
+    <!-- Agrega aquí las demás columnas igual que las anteriores -->
   </div>
 
   <script src="script.js"></script>
