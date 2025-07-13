@@ -1,53 +1,36 @@
+// Script para la lógica de aprobación y desbloqueo
+
 document.addEventListener("DOMContentLoaded", () => {
-  const ramos = {
-    "Cálculo I": { requisitos: [], semestre: 1, desbloquea: ["Cálculo II", "Fundamentos de economía para ingeniería"] },
-    "Álgebra I": { requisitos: [], semestre: 1, desbloquea: ["Álgebra II"] },
-    "Física I": { requisitos: [], semestre: 1, desbloquea: ["Física II"] },
-    "Introducción al diseño en ingeniería": { requisitos: [], semestre: 1, desbloquea: ["Fundamentos de programación para ingeniería"] },
-    "Introducción a la ingeniería biomédica": { requisitos: [], semestre: 1, desbloquea: [] },
-    "Cálculo II": { requisitos: ["Cálculo I"], semestre: 2, desbloquea: [] },
-    "Álgebra II": { requisitos: ["Álgebra I"], semestre: 2, desbloquea: [] },
-    "Física II": { requisitos: ["Física I"], semestre: 2, desbloquea: [] },
-    "Fundamentos de programación para ingeniería": { requisitos: ["Introducción al diseño en ingeniería"], semestre: 2, desbloquea: [] },
-    "Biología Celular": { requisitos: [], semestre: 2, desbloquea: [] }
-  };
+  const ramos = document.querySelectorAll(".ramo");
 
-  const estado = {};
-  Object.entries(ramos).forEach(([nombre, datos]) => {
-    const div = document.createElement("div");
-    div.className = "ramo bloqueado";
-    div.textContent = nombre;
-    div.dataset.nombre = nombre;
-
-    const columna = document.getElementById(`semestre-${datos.semestre}`);
-    if (columna) columna.appendChild(div);
-
-    estado[nombre] = {
-      aprobado: false,
-      div: div
-    };
-
-    if (datos.requisitos.length === 0) desbloquear(nombre);
+  // Mapa para acceder rápido a cada ramo por su id
+  const mapaRamos = {};
+  ramos.forEach(ramo => {
+    mapaRamos[ramo.id] = ramo;
   });
 
-  function desbloquear(nombre) {
-    const ramo = estado[nombre];
-    ramo.div.classList.remove("bloqueado");
-    ramo.div.addEventListener("click", () => aprobar(nombre));
-  }
+  // Función para aprobar un ramo y todos los que dependen de él recursivamente
+  function aprobarRamo(id) {
+    const ramo = mapaRamos[id];
+    if (!ramo || ramo.classList.contains("aprobado")) return;
 
-  function aprobar(nombre) {
-    const ramo = estado[nombre];
-    if (!ramo.aprobado) {
-      ramo.aprobado = true;
-      ramo.div.classList.add("aprobado");
+    ramo.classList.add("aprobado");
 
-      const desbloquea = ramos[nombre].desbloquea || [];
-      desbloquea.forEach(dest => {
-        const requisitos = ramos[dest]?.requisitos || [];
-        const aprobados = requisitos.every(req => estado[req]?.aprobado);
-        if (aprobados) desbloquear(dest);
-      });
+    // Desbloquear ramos que este ramo abre
+    const abre = ramo.dataset.abre;
+    if (abre && abre.trim() !== "") {
+      const ramosAbiertos = abre.split(",").map(r => r.trim());
+      ramosAbiertos.forEach(ramoId => aprobarRamo(ramoId));
     }
   }
+
+  // Click en ramo
+  ramos.forEach(ramo => {
+    ramo.addEventListener("click", () => {
+      // Si ya está aprobado no hace nada
+      if (ramo.classList.contains("aprobado")) return;
+
+      aprobarRamo(ramo.id);
+    });
+  });
 });
