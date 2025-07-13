@@ -1,60 +1,104 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f0f8ff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fff0f6;
+  color: #5a2140;
   padding: 20px;
-  text-align: center;
 }
 
 h1 {
-  color: #004c99;
+  text-align: center;
   margin-bottom: 30px;
-  font-size: 2rem;
+  color: #b3306a;
 }
 
-.malla {
+#malla-container {
   display: flex;
   overflow-x: auto;
   gap: 15px;
-  justify-content: flex-start;
   padding-bottom: 20px;
 }
 
-.semestre {
+.semestre-col {
+  background: #fce4ec;
+  border-radius: 8px;
+  min-width: 240px;
+  padding: 15px 10px 30px 10px;
+  box-shadow: 0 0 10px #e3a9c7;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 10px;
-  min-width: 200px;
-  background-color: #ffffff;
-  border-radius: 15px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.semestre-col h2 {
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  color: #a52a5e;
+  text-align: center;
 }
 
 .ramo {
-  padding: 12px;
-  border-radius: 10px;
-  background-color: #cce6ff;
-  border: 2px solid #99ccff;
-  transition: 0.3s;
+  background: #f48fb1;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px #d27a9a;
+  padding: 12px 10px;
+  margin-bottom: 12px;
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
   cursor: pointer;
+  user-select: none;
+  transition: all 0.3s ease;
+  color: white;
   font-size: 0.95rem;
-  color: #004c99;
 }
 
-.ramo:hover {
-  background-color: #b3daff;
+/* Estado no aprobado (normal) */
+.ramo:not(.aprobado):hover {
+  background: #ec407a;
+  box-shadow: 0 3px 8px #c33f70;
 }
 
+/* Estado aprobado */
 .ramo.aprobado {
-  background-color: #a8e6a3;
-  border-color: #4caf50;
-  color: #1b5e20;
+  background: #ad1457;
+  box-shadow: 0 3px 10px #730033;
+  color: #ffdce4;
+  text-decoration: line-through;
+  cursor: default;
 }
 
-.ramo.bloqueado {
-  background-color: #e0e0e0;
-  border-color: #bdbdbd;
-  color: #888;
-  pointer-events: none;
-  cursor: not-allowed;
+/* Scrollbar para container horizontal */
+#malla-container::-webkit-scrollbar {
+  height: 8px;
+}
+#malla-container::-webkit-scrollbar-track {
+  background: #fce4ec;
+  border-radius: 10px;
+}
+#malla-container::-webkit-scrollbar-thumb {
+  background: #b3306a;
+  border-radius: 10px;
+}
+
+/* Responsive: menos padding en móvil */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+  .semestre-col {
+    min-width: 180px;
+    padding: 10px 8px 20px 8px;
+  }
+  .ramo {
+    font-size: 0.85rem;
+    padding: 8px 6px;
+  }
 }
